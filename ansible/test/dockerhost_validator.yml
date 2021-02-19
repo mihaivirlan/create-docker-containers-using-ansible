@@ -1,0 +1,10 @@
+- name: vaidator
+  hosts: localhost
+  become: true
+  tasks:
+  - name: validate docker container
+    uri:
+      url: http://dockerhost:8080
+      return_content: yes
+    register: this
+    failed_when: "'hey there' not in this.content"
