@@ -4,7 +4,7 @@
 - two folder with content requirements for each of above hosts, for vm/machine `ansible`, folder=ansible,for vm/machine `dockerhost`, folder=dockerhost
 
 ## Get started
-- git clone 
+- git clone https://github.com/mihaivirlan/create-docker-containers-using-ansible
 - cd path_to_new_cloned_repository
 - open terminal/shell and connect on `ansible` vm/host through ssh: ssh `dockerhost`
 - from `ansible` vm edit and add your ip address for `dockerhost` in /etc/hosts, generate the ssh key, and transfer the ssh public key to `dockerhost` machine/vm: ssh-copy-id `dockerhost`
@@ -14,7 +14,7 @@
 - sudo su -
 - apt update; apt install ansible
 - ansible --version
-- nano /etc/ansible/hosts (edit and add follow entry at the end of the file)
+- nano /etc/ansible/hosts (edit and add follow entry at the end of the file)<br/>
 [servers]
 dockerhost ansible_host=192.168.8.108
 [all:vars]
