@@ -7,11 +7,15 @@
 ### Get started
 - git clone https://github.com/mihaivirlan/create-docker-containers-using-ansible
 - cd path_to_new_cloned_repository
-- open terminal/shell and connect on `ansible` vm/host through ssh: ssh `dockerhost`
-- from `ansible` vm edit and add your ip address for `dockerhost` in /etc/hosts, <br/>
+- edit your local /etc/hosts file and add inside, the hostname and ip address for `ansible` machine
+- open terminal/shell and connect on `ansible` vm/host through ssh: ssh `ansible`
+- after connected, from `ansible` machine, <br/>
+  edit and add your hostname and ip address for `dockerhost` machine in /etc/hosts, <br/>
   generate the ssh key, <br/>
   and transfer the ssh public key to `dockerhost` machine/vm: ssh-copy-id `dockerhost`
-- after transfer successfully ssh public key, try to connect from `ansible` machine to `dockerhost` machine, you should connect/login successfully through ssh, if you successfully transferred the public key
+- after transfer successfully ssh public key,<br/> 
+  try to connect from `ansible` machine to `dockerhost` machine,<br/> 
+  you should connect/login successfully through ssh, if you successfully transferred the public key
 
 ### Install/setting up the ansible on your `ansible` machine:
 - sudo su -
