@@ -68,7 +68,7 @@ ansible_python_interpreter=/usr/bin/python3
 - Also, test the running container from your browser - `your_ip_address_dockerhost_machine:8080`
 
 # Validation module for dockerhost
-### From `ansible` machine::
+### From `ansible` machine:
 - sudo su -
 - cd test
 - ansible-playbook dockerhost_validator.yml
