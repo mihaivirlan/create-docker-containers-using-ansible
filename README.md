@@ -43,6 +43,7 @@ ansible_python_interpreter=/usr/bin/python3
 
 # Create the custom image, running ansible-playbook
 ### From `ansible` machine:
+- cd test
 - ansible-playbook create_image.yml
 
 ### From `dockerhost` machine:
