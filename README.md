@@ -43,6 +43,7 @@ ansible_python_interpreter=/usr/bin/python3
 
 # Create the custom image, running ansible-playbook
 ### From `ansible` machine:
+- sudo su -
 - cd test
 - ansible-playbook create_image.yml
 
@@ -50,4 +51,15 @@ ansible_python_interpreter=/usr/bin/python3
 - sudo su -
 - docker images
 
+
+# Create container, running ansible-playbook
+### From `ansible` machine:
+- sudo su -
+- cd test
+- ansible-playbook create_container.yml
+
+### From `dockerhost` machine:
+- sudo su -
+- docker ps -a
+- Also, test the running container from your browser - `your_ip_address_dockerhost_machine:8080`
 
