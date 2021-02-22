@@ -77,3 +77,30 @@ ansible_python_interpreter=/usr/bin/python3
 - sudo su -
 - cd create-docker-containers-using-ansible/test
 - ansible-playbook dockerhost_validator.yml
+
+# Create all above tasks from one file, running ansible-playbook
+### From `ansible` machine:
+- create the `docker` directory in path `/root/docker`, in this directory create/put/copy all files from `dockerhost/docker` folder
+- cd create-docker-containers-using-ansible/test
+- ansible-playbook all_task_in_one_file.yml
+
+### From `dockerhost` machine:
+- after executing tasks from `ansible` machine, on `dockerhost` machine, go in `/root/docker`, <br/> 
+  and change the permission for file `run.sh`: `chmod +x run.sh`
+
+### From `ansible` machine:
+- after that, go on `ansible` machine, go in path `cd create-docker-containers-using-ansible/test`,<br/>
+  and edit the `all_task_in_one_file.yml` file, removed the copy file task/module from top/begin of the file
+
+### From `dockerhost` machine:
+- sudo su -
+- docker rmi $(docker images)
+- docker rm $(docker ps -a)
+
+### From `ansible` machine:
+- ansible-playbook all_task_in_one_file.yml (it can run a few minutes)
+
+### From `dockerhost` machine:
+- sudo su -
+- docker images
+- docker ps -a

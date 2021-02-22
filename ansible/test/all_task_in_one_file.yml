@@ -1,0 +1,29 @@
+- hosts: servers
+  become: true
+  tasks:
+  - name: Copy file with owner and permissions / Pull centos image / Build docker image / Create a web container
+    copy:
+      src: /root/docker
+      dest: /root
+      owner: mihail
+      group: mihail
+      mode: '0644'
+
+  - name: pull
+    docker_image:
+      name: centos
+
+  - name: Build image
+    docker_image:
+      path: /root/docker
+      name: webimage
+
+  - name: web container
+    docker_container:
+      name: web
+      image: webimage
+      state: started
+      ports:
+      - "8080:80"
+      tty: true
+      detach: true
